@@ -65,3 +65,36 @@ class Library:
                 inp_member = member
                 break
         inp_member.return_book(inp_book)
+
+    def list_books(self):
+        return [str(book) for book in self.books]
+
+    def list_members(self):
+        return [str(member) for member in self.members]
+
+
+# ایجاد کتاب‌ها
+book1 = Book("1984", "جورج اورول", "1234567890")
+book2 = Book("کشتن مرغ مقلد", "هارپر لی", "0987654321")
+print(book1)
+print(book2)
+
+# ایجاد کتابخانه و اضافه کردن کتاب‌ها
+library = Library()
+library.add_book(book1)
+library.add_book(book2)
+print(library.list_books())
+
+# ثبت یک عضو
+member = Member("آلیس", "M001")
+library.register_member(member)
+print(member)
+print(library.list_members())
+
+# امانت دادن کتاب به عضو
+library.issue_book("M001", "1234567890")
+print(library.list_books())
+
+# بازگرداندن کتاب
+library.return_book("M001", "1234567890")
+print(library.list_books())
